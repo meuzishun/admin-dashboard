@@ -22,7 +22,6 @@ html {
 }
 
 .container {
-  width: 100%;
   min-height: 100vh;
   background-color: $grey-bg;
   display: grid;
@@ -36,13 +35,19 @@ html {
     padding: 1rem;
   }
 
+  .avatar {
+    padding: 10%;
+    background-color: $grey-bg;
+    border-radius: 50%;
+  }
+
   header {
     grid-area: header;
     background-color: #fff;
     display: grid;
-    grid-template-columns: 3fr 2fr;
+    grid-template-columns: 4fr 2fr;
     grid-template-rows: repeat(2, auto);
-    grid-gap: 1rem;
+    grid-row-gap: 1rem;
     box-shadow: 0.1rem 0.2rem 0.2rem rgba(0, 0, 0, 0.2);
 
     > div {
@@ -55,7 +60,7 @@ html {
 
     .search-bar {
       display: grid;
-      grid-template-columns: auto 1fr;
+      grid-template-columns: min-content 1fr;
       align-items: center;
       grid-gap: 1rem;
 
@@ -68,19 +73,26 @@ html {
     }
 
     .user-info {
-      //! Horizontal layout not quite right
       display: grid;
-      grid-auto-flow: column;
+      grid-template-columns: repeat(3, max-content);
       align-items: center;
-      justify-items: end;
+      justify-content: center;
+      grid-gap: 2rem;
+
+      .avatar {
+        width: 3rem;
+      }
     }
 
     .welcome {
-      //! Horizontal layout not quite right
       display: grid;
-      grid-auto-flow: column;
+      grid-template-columns: repeat(2, max-content);
       align-items: center;
-      justify-items: start;
+      grid-gap: 1rem;
+
+      .avatar {
+        width: 4rem;
+      }
 
       .message {
         p {
@@ -97,17 +109,19 @@ html {
 
     .buttons {
       display: grid;
-      grid-auto-flow: column;
-      align-items: end;
-      justify-content: space-evenly;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 2rem;
+      // padding: 0.75rem;
+      align-items: center;
+      justify-items: center;
 
       button {
         padding: 0.5rem 1.25rem;
         border: none;
         border-radius: 1000px;
-        font-size: 0.8rem;
-        font-weight: 700;
-        color: #eee;
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: #fff;
         text-transform: capitalize;
         background-color: $blue-bg;
       }
@@ -160,9 +174,6 @@ html {
         }
       }
     }
-
-    .help-nav {
-    }
   }
 
   main {
@@ -198,8 +209,6 @@ html {
           padding: 1.75rem 1.25rem 1.5rem;
           border-radius: 0.5rem;
           border-left: 8px solid $tan-bg;
-          $dark-font: #000;
-          $light-font: #cdcdcd;
           background-color: #fff;
           box-shadow: 0.1rem 0.2rem 0.2rem rgba(0, 0, 0, 0.2);
 
@@ -258,7 +267,6 @@ html {
           p {
             font-size: 0.75rem;
             height: 2.7rem;
-            width: 10rem;
             overflow: hidden;
             text-overflow: ellipsis;
           }
@@ -268,14 +276,30 @@ html {
 
     .trending-container {
       grid-area: trends;
+      width: max-content;
 
       .trends {
-        padding: 2rem 1.5rem;
+        padding: 1rem;
         border-radius: 0.5rem;
         background-color: #fff;
         box-shadow: 0.1rem 0.2rem 0.2rem rgba(0, 0, 0, 0.2);
+        display: grid;
+        grid-template-rows: repeat(4, min-content);
+        grid-gap: 1rem;
 
         .trend {
+          display: grid;
+          grid-template-columns: repeat(2, max-content);
+          align-items: center;
+
+          > * {
+            margin-right: 1rem;
+          }
+
+          .avatar {
+            width: 3rem;
+          }
+
           .content {
             p {
               font-size: 0.8rem;
