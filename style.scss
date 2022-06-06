@@ -23,6 +23,10 @@ html {
 
   header {
     grid-area: header;
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    grid-template-rows: repeat(2, auto);
   }
 
   aside {
